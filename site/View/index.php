@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home - Home Page | Music - Free Website Template from Templates.com</title>
+<title>Home Page | HXH Group</title>
 	<link rel = "icon" href ="images/hxh-logo.png" type = "image/x-icon">
 <meta charset="utf-8">
 <meta name="description" content="Place your description here" />
@@ -27,7 +27,6 @@
   	<script type="text/javascript" src="js/html5.js"></script>
   <![endif]-->
 </head>
-	
 <body id="page1">
 <?php
 	session_start();
@@ -42,6 +41,7 @@
       <aside>
 	<h2>Login Form</h2>
 	<div class="box">
+					
 					<form action="account-page.php" id="login-form" method="post">
 						<fieldset>
 							<div class="field"><label for="username">Username:</label><input type="text" class="text" name="username" required/></div>

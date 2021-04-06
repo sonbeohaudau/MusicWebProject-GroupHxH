@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="C:/xampp/htdocs/Webprogramming/" local="132617606093513195" remote="132617606090000000" Dst="0" />
-<file name="footer.html" server="C:/xampp/htdocs/Webprogramming/" local="132616713048220083" remote="132616713040000000" Dst="0" />
-<file name="header.php" server="C:/xampp/htdocs/Webprogramming/" local="132617210806338865" remote="132617210800000000" Dst="0" />
-<file name="account-page.php" server="C:/xampp/htdocs/Webprogramming/" local="132617614489118519" remote="132617614480000000" Dst="0" />
-<file name="singer-page.php" server="C:/xampp/htdocs/Webprogramming/" local="132616734533260192" remote="132616734530000000" Dst="0" />
-<file name="single-singer-page.php" server="C:/xampp/htdocs/Webprogramming/" local="132616728460671200" remote="132616728460000000" Dst="0" />
-<file name="DBconnection.php" server="C:/xampp/htdocs/Webprogramming/" local="132618070480000000" remote="132618070480000000" Dst="0" />
+<file name="connection.php" server="C:/xampp/htdocs/Webprogramming/" local="132621909162937898" remote="132621909160000000" Dst="0" />
+<file name="testindex.php" server="C:/xampp/htdocs/Webprogramming/" local="132621968761550609" remote="132621968760000000" Dst="0" />
 </dwsync>
