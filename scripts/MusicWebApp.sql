@@ -13,9 +13,9 @@ create table Song(
 	SongTitle nvarchar(30),
 	Genre nvarchar(15),
 	Country nvarchar(30),
-	[View] int,
+	[Views] int,
 	Link nvarchar(100),
-	[Image] varBinary(max)
+	ImageLink nvarchar(250) 
 );
 
 create table Track(
@@ -34,7 +34,7 @@ create table Singer(
 	SingerName nvarchar(30),
 	BirthYear nvarchar(10),
 	Background nvarchar(max),
-	[Image] varBinary(max)
+	ImageLink nvarchar(250)
 );
 
 create table PerformedBy(
