@@ -6,9 +6,9 @@ create table Song(
 	country nvarchar(10),
 	proposer nvarchar(20),
 	rating float,
-	[view] int
+	[view] int,
+)
 
-);
-
-insert into Song(country,proposer,rating,[view]) values 
-('UK','Adele','5','100')
+insert into Song(country, proposer, rating) values 
+('US','Maroon 5',5),
+('JP','Miku',4.5);
