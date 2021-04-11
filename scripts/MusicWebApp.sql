@@ -69,7 +69,7 @@ begin
 		set @responseMessage = error_message();
 	end catch
 end
-
+exec AddUser @pAccountID = '?', @pUsername = '?', @pPassword = '?';
 go
 declare @responseMessage nvarchar(250)
 exec AddUser
