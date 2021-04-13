@@ -109,3 +109,4 @@ end
 ----drop table PerformedBy;
 
 --select DB_NAME()
+select * from MV

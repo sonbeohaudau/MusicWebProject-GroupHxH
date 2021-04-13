@@ -1,6 +1,7 @@
 
 	<?php
-	include_once('Controller/C_Song.php');
-	$controller = new Ctrl_Song();
-	$controller->invoke();
+	session_start();
+	include_once('Controller/C_MV.php');
+	$_SESSION['controller'] = new Ctrl_MV();
+	$_SESSION['controller']->invoke();
 	?>

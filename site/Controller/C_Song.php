@@ -1,6 +1,6 @@
 <?php
-include_once('Model/M_Song.php');
-include_once('Model/E_Song.php');
+include_once('../Model/M_Song.php');
+include_once('../Model/E_Song.php');
 
 class Ctrl_Song{
 	public function invoke(){
@@ -10,7 +10,7 @@ class Ctrl_Song{
 //			echo $songList[$i]->songID;
 //			print("<br>");
 //		}
-		include_once('View/song-page-test.php');
+		include_once('../View/song-page-test.php');
 	}
 }
 

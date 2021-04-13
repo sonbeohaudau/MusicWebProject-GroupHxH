@@ -1,6 +1,6 @@
 <?php
 include_once('E_Song.php');
-include_once('connection.php');
+include_once('../connection.php');
 
 class Model_Song{
 	function __construct(){}
