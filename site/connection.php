@@ -4,7 +4,7 @@ class DB{
     public static function getInstance() {
       if (!isset(self::$instance)) {
         try {
-          self::$instance = new PDO("sqlsrv:server=DESKTOP-770BSID\MSSQLSERVER,1433;Database=MusicAppWebProgramming;ConnectionPooling=0");
+          self::$instance = new PDO("sqlsrv:server=DESKTOP-QAH63S1\ADMIN,1433;Database=MusicAppWebProgramming;ConnectionPooling=0");
         } catch (PDOException $ex) {
           die($ex->getMessage());
         }
