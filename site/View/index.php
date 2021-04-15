@@ -48,7 +48,7 @@
                <h2>Introduction</h2>
                <img src="images/1page-img.jpg">
                <p class="p1">Music Beats Site is a web modified by <span class="txt1">HxH group</span> from template provided by <span class="txt1">TemplateMonster.com</span> team.</p>
-               <p class="p0">This website provide entertainment-purpose features such as listening to music, bla blo bla blo bla blo ai chém gió hộ cái :3.<br><?php echo $_SESSION['inUsername'];?></p>
+               <p class="p0">This website provide entertainment-purpose features such as listening to music, bla blo bla blo bla blo ai chém gió hộ cái :3.</p>
             </article>
             <article class="col-2">
                <h2>Group Members</h2>

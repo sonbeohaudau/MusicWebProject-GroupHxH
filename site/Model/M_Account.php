@@ -76,7 +76,7 @@ class Model_Account{
 
 $m = new Model_Account();
 //echo $m->checkUserforSignup('phihungthnc');
-$m->createAdmin(1,'admin1','admin1','xxx');
+//$m->createAdmin(1,'admin1',' admin1','xxx');
 //$m->insertAccount('phihungthnc','bolalong','xxx');
 //$a = $m->getAccount('phihungthnc','bolalong');
 //echo $a->getAccountID()."<br>".$a->getUsername()."<br>".$a->getPassword()."<br>".$a->getAvatar();

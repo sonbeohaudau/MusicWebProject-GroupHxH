@@ -109,7 +109,17 @@ end
 ----drop table PerformedBy;
 
 --select DB_NAME()
-select * from MV
+DECLARE @PageNumber AS INT
+DECLARE @RowsOfPage AS INT
+SET @PageNumber=2
+SET @RowsOfPage=4
+SELECT *
+FROM MV
+ORDER BY MVID
+OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+FETCH NEXT @RowsOfPage ROWS ONLY
+
+
 select * from Account
 where PasswordHash = HASHBYTES('SHA2_256','bolalong')
  and Username = 'phihungthnc';
@@ -127,3 +137,6 @@ insert into Account(AccountID, Username, PasswordHash, Avatar)
 
  insert into Song(SongID,SongTitle,Genre,Country,SongViews,AudioLink,SongImage) values
  ()
+
+ insert into MV(MVID,MVTitle,MVImage,MVLink) values
+ (1,'HXH Portfolio','xxx','HxH Portfolio.mp4')

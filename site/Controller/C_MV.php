@@ -14,6 +14,12 @@ class Ctrl_MV{
 		$modelMV = new Model_MV();
 		$modelMV->insertMV($MVID,$MVTitle,$MVImage,$MVLink);
 	}
+	
+	public function getPaginationResult($pageNum, $resultPerPage){
+		$modelMV = new Model_MV();
+		$MVList = $modelMV->getPaginationPage($pageNum, $resultPerPage);
+		return $MVList;
+	}
 }
 
 //$c = new Ctrl_MV();
