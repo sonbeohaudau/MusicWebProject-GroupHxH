@@ -66,6 +66,7 @@ include('../Controller/C_MV.php');
 $mvcontroller = new Ctrl_MV();
 $MVList = $mvcontroller->invoke();
 $listLength = count($MVList);
+$singleMV = $mvcontroller->getSingleMV($_GET['MVID']);
 ?>
 <body id="page5">
 	<?php 
@@ -80,10 +81,22 @@ $listLength = count($MVList);
    <aside>
       <div class="inside">
          <h2>Latest MV</h2>
-         <ul class="mv"q>
-            <li><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-3]->getMVImage(); ?>">&nbsp;<?php echo $MVList[$listLength-3]->getMVTitle(); ?></li><br>
-            <li><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-2]->getMVImage(); ?>">&nbsp;<?php echo $MVList[$listLength-2]->getMVTitle(); ?></li><br>
-            <li><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-1]->getMVImage(); ?>">&nbsp;<?php echo $MVList[$listLength-1]->getMVTitle(); ?></li><br>
+         <ul class="mv list1">
+            <li>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-3]->getMVImage(); ?>"></a>
+				<?php echo $MVList[$listLength-3]->getMVTitle(); ?><br>
+				<?php echo $MVList[$listLength-3]->getMVLink(); ?>
+			 </li><br>
+            <li>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-2]->getMVImage(); ?>"></a>
+				<?php echo $MVList[$listLength-2]->getMVTitle(); ?><br>
+				<?php echo $MVList[$listLength-2]->getMVLink(); ?>
+			 </li><br>
+			<li>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-1]->getMVImage(); ?>"></a>
+				<?php echo $MVList[$listLength-1]->getMVTitle(); ?><br>
+				<?php echo $MVList[$listLength-1]->getMVLink(); ?>
+			 </li><br>
          </ul>
       </div>
    </aside>
@@ -92,8 +105,7 @@ $listLength = count($MVList);
 	   <ul class="breadcrumb">
 		  <li><a href="index.php">Home</a></li>
 		  <li><a href="mv-page.php">MV</a></li>
-		  <li><a href="#">Single MV page</a></li>
-		  <li>Italy</li>
+		  <li><?php echo $singleMV->getMVTitle(); ?></li>
 		</ul>
       <video width="100%" height="100%" src="video/<?php echo $MVList[0]->getMVLink(); ?>" controls>
    </section>

@@ -20,6 +20,12 @@ class Ctrl_MV{
 		$MVList = $modelMV->getPaginationPage($pageNum, $resultPerPage);
 		return $MVList;
 	}
+	
+	public function getSingleMV($MVID){
+		$modelMV = new Model_MV();
+		$mv = $modelMV->getMVbyID($MVID);
+		return $mv;
+	}
 }
 
 //$c = new Ctrl_MV();

@@ -70,14 +70,13 @@ ul.breadcrumb li a:hover {
         float: left;   
         padding: 8px 16px;   
         text-decoration: none;   
-        border:1px solid transparent;   
     }   
     .pagination a.active {   
             background-color: transparent; 
-			border-color: blueviolet;
+		border:1px solid blueviolet;
     }   
     .pagination a:hover:not(.active) {   
-        background-color: #9A5EB7;   
+		background-image: linear-gradient(45deg, #B07CC9, #df53f6);
     }   
 </style>
 <?php
@@ -138,7 +137,7 @@ $MVPagList = $mvcontroller->getPaginationResult($page, $result_per_page);
 	   <div>
 	   <?php
 	   for($i=0;$i<count($MVPagList);$i++){
-		   echo $MVPagList[$i]->getMVTitle();
+		   echo '<a href=\'single-mv-page.php?MVID='.$MVPagList[$i]->getMVID().'\'>'.$MVPagList[$i]->getMVTitle().'</a>';
 		   echo '<br>';
 	   }
 	   ?>
