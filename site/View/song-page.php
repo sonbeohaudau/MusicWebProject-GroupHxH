@@ -27,7 +27,11 @@
   <![endif]-->
 </head>
 <body id="page2">
-	<?php $_SESSION["mode"] = 2; ?>
+	<?php 
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
+	$_SESSION["mode"] = 2; ?>
 <div class="wrap"><!-- header -->
 <?php include "./header.php" ?>
 <div class="container">

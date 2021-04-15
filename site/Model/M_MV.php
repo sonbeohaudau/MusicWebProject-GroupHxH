@@ -50,7 +50,7 @@ class Model_MV{
 	}
 }
 
-$m = new Model_MV();
+//$m = new Model_MV();
 //$m->getAllMV();
 //$m->insertMV(1,'First MV for insertMV fucntion test','test.png','test.mp4');
 //$m->deleteMV(1);

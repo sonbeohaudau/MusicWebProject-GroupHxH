@@ -140,19 +140,19 @@ textarea {
 
 /*----- lists -----*/
 
-.news li {
+.mv li {
 	line-height:1.538em;
 	padding-bottom:20px;
 }
-	.news li strong {
+	.mv li strong {
 		color:#fff;
 		display:block;
 	}
-	.news li a {
+	.mv li a {
 		text-decoration:none;
 		font-weight:bold;
 	}
-	.news li a:hover {
+	.mv li a:hover {
 		text-decoration:underline;
 	}
 

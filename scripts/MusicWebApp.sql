@@ -4,7 +4,7 @@ use MusicAppWebProgramming;
 create table Account (
 	AccountID int primary key,
 	Username nvarchar(15),
-	PasswordHash varbinary(max),
+	PasswordHash nvarchar(max),
 	Avatar varchar(max)
 	--TODO: need Avatar, password length change to var(max)
 );
@@ -82,7 +82,7 @@ begin
 
 	begin try
 		insert into Account (AccountID, Username, PasswordHash, Avatar)
-		values (@pAccountID, @pUsername, hashbytes('SHA2_256', @pPassword), @pAvatar);
+		values (@pAccountID, @pUsername, hashbytes('SHA2_512', @pPassword), @pAvatar);
 		
 		set @responseMessage = 'Successfully inserted into table Account.';
 	end try
@@ -110,3 +110,20 @@ end
 
 --select DB_NAME()
 select * from MV
+select * from Account
+where PasswordHash = HASHBYTES('SHA2_256','bolalong')
+ and Username = 'phihungthnc';
+
+ select HASHBYTES('SHA2_512','bolalong')
+
+insert into Account(AccountID, Username, PasswordHash, Avatar) values
+(1,'admin',HASHBYTES('SHA2_256','bolalong'),'xxx')
+
+select top 1 AccountID +1 as AccountID from Account
+order by AccountID desc
+
+insert into Account(AccountID, Username, PasswordHash, Avatar)
+ values (1,'admin','admin','xxx')
+
+ insert into Song(SongID,SongTitle,Genre,Country,SongViews,AudioLink,SongImage) values
+ ()

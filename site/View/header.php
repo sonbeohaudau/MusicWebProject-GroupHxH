@@ -15,7 +15,7 @@
             <li class="m1"><a href="index.php" <?php if($_SESSION["mode"] == 1) echo "class=\"active\""?>><span>home</span></a></li>
             <li class="m2"><a href="song-page.php" <?php if($_SESSION["mode"] == 2) echo "class=\"active\""?>><span>Songs</span></a></li>
             <li class="m3"><a href="singer-page.php" <?php if($_SESSION["mode"] == 3) echo "class=\"active\""?>><span>Singers</span></a></li>
-            <li class="m4"><a href="news-page.php" <?php if($_SESSION["mode"] == 4) echo "class=\"active\""?>><span>News</span></a></li>
+            <li class="m4"><a href="mv-page.php" <?php if($_SESSION["mode"] == 4) echo "class=\"active\""?>><span>MV</span></a></li>
             <li class="m5 last"><a href="account-page.php" <?php if($_SESSION["mode"] == 5) echo "class=\"active\""?>><span>Account</span></a></li>
          </ul>
       </nav>

@@ -26,17 +26,27 @@
   	<script type="text/javascript" src="js/html5.js"></script>
   <![endif]-->
 </head>
+<?php
+include('../connection.php');
+include('../Controller/C_MV.php');
+$mvcontroller = new Ctrl_MV();
+$MVList = $mvcontroller->invoke();
+?>
 <body id="page5">
-	<?php $_SESSION["mode"] = 4; ?>
+	<?php 
+	if (session_status() === PHP_SESSION_NONE) {
+    	session_start();
+	}
+	$_SESSION["mode"] = 4; ?>
 <div class="wrap"><!-- header -->
 <?php include "./header.php" ?>
 <div class="container">
    <!-- aside -->
    <aside>
       <div class="inside">
-         <h2>Latest News</h2>
-         <ul class="news">
-            <li><a href="#">June 30, 2010</a><strong>Sed ut perspiciatis unde</strong>Omnis iste natus luptatem accusantium doloremque laudantium totamrem.</li>
+         <h2>Latest MV</h2>
+         <ul class="mv"q>
+            <li><img src="images/<?php end($MVList); ?>"><?php echo end($MVList)->getMVID(); ?></li>
             <li><a href="#">June 14, 2010</a><strong>Neque porro quisquam est</strong>Consequuntur magni dolores eos qughi ratione voluptatem sequi.</li>
             <li><a href="#">May 29, 2010</a><strong>Minima veniam, quis nostrum</strong>Ut enim ad minima veniam, quis nosrum exercitatnem ullam corporis.</li>
          </ul>

@@ -39,20 +39,7 @@
    <div class="container">
       <!-- aside -->
       <aside>
-	<h2>Login Form</h2>
-	<div class="box">
-					
-					<form action="account-page.php" id="login-form" method="post">
-						<fieldset>
-							<div class="field"><label for="username">Username:</label><input type="text" class="text" name="username" required/></div>
-							<div class="field"><label for="pass">Password:</label><input type="password" class="password" name="pass" required/></div>
-							<div class="wrapper">
-								<input type="submit" name="submit" value="Sign In" class="submit fleft" />
-								<input type="submit" name="submit" value="Sign Up" class="submit fright" />
-							</div>
-						</fieldset>
-					</form>
-				</div>
+	<?php include('./log-form.php'); ?>
       </aside>
       <!-- content -->
       <section id="content">
@@ -61,7 +48,7 @@
                <h2>Introduction</h2>
                <img src="images/1page-img.jpg">
                <p class="p1">Music Beats Site is a web modified by <span class="txt1">HxH group</span> from template provided by <span class="txt1">TemplateMonster.com</span> team.</p>
-               <p class="p0">This website provide entertainment-purpose features such as listening to music, bla blo bla blo bla blo ai chém gió hộ cái :3.</p>
+               <p class="p0">This website provide entertainment-purpose features such as listening to music, bla blo bla blo bla blo ai chém gió hộ cái :3.<br><?php echo $_SESSION['inUsername'];?></p>
             </article>
             <article class="col-2">
                <h2>Group Members</h2>
