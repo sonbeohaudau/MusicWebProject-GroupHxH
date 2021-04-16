@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>About Us - About Us | Music - Free Website Template from Templates.com</title>
+<title>Song Page | HXH Group</title>
 	<link rel = "icon" href ="images/hxh-logo.png" type = "image/x-icon">
 <meta charset="utf-8">
 <meta name="description" content="Place your description here" />
@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/pagination.css" type="text/css" media="all">
 <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -26,7 +27,63 @@
   	<script type="text/javascript" src="js/html5.js"></script>
   <![endif]-->
 </head>
-<body id="page2">
+<style>
+/* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: whitesmoke;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}	
+	   
+</style>
+<?php
+include('../connection.php');
+include('../Controller/C_Song.php');
+$songcontroller = new Ctrl_Song();
+$songList = $songcontroller->invoke();
+$listLength = count($songList);
+	
+//define total number of results you want per page
+$result_per_page = 5;
+	
+//determine the total number of pages available  
+$number_of_page = ceil($listLength/$result_per_page);
+
+//determine which page number visitor is currently on  
+if(!isset($_GET['page'])){
+	$page = 1;
+}else{
+	$page = $_GET['page'];
+}
+$songPagList = $songcontroller->getPaginationResult($page, $result_per_page);
+?>
+<body id="page5">
 	<?php 
 	if (session_status() === PHP_SESSION_NONE) {
     	session_start();
@@ -38,25 +95,63 @@
    <!-- aside -->
    <aside>
       <div class="inside">
-         <h2>Latest News</h2>
-         <ul class="news">
-            <li><a href="#">June 30, 2010</a><strong>Sed ut perspiciatis unde</strong>Omnis iste natus luptatem accusantium doloremque laudantium totamrem.</li>
-            <li><a href="#">June 14, 2010</a><strong>Neque porro quisquam est</strong>Consequuntur magni dolores eos qughi ratione voluptatem sequi.</li>
-            <li><a href="#">May 29, 2010</a><strong>Minima veniam, quis nostrum</strong>Ut enim ad minima veniam, quis nosrum exercitatnem ullam corporis.</li>
+         <h2>Latest Song</h2>
+         <ul class="mv list1">
+            <li>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $songList[$listLength-3]->getSongImage(); ?>"></a>
+				<?php echo $songList[$listLength-3]->getSongTitle(); ?><br>
+				<?php echo $songList[$listLength-3]->getGenre(); ?>
+			 </li><br>
+            <li>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $songList[$listLength-3]->getSongImage(); ?>"></a>
+				<?php echo $songList[$listLength-2]->getSongTitle(); ?><br>
+				<?php echo $songList[$listLength-2]->getGenre(); ?>
+			 </li><br>
+			<li>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $songList[$listLength-3]->getSongImage(); ?>"></a>
+				<?php echo $songList[$listLength-1]->getSongTitle(); ?><br>
+				<?php echo $songList[$listLength-1]->getGenre(); ?>
+			 </li><br>
          </ul>
       </div>
    </aside>
    <!-- content -->
    <section id="content">
-      <h2>About Your Website</h2>
-      <p class="p2"><span class="txt1">Sed ut perspiciatis unde omnis</span> iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui rationeue porro quisquam est.</p>
-      <h2 class="indent">About Your Team</h2>
-      <ul class="list1">
-         <li><img src="images/2page-img1.jpg"><strong>Team Member One</strong>He is the most important member of your team. Usually this is the person who started the website. Maybe it is worth to write why he has made such a decision and what has inspired him.</li>
-         <li><img src="images/2page-img2.jpg"><strong>Another Team Member</strong>We are completly lost on what he's responsible for, but we hope that you know it ;) We also hope that you will tell it to the rest of the world including us by placing some real text here.</li>
-      </ul>
+	   <div>
+	   <?php
+	   for($i=0;$i<count($songPagList);$i++){
+		   echo '<a href=\'single-song-page.php?SongID='.$songPagList[$i]->getSongID().'\'>'.$songPagList[$i]->getSongTitle().'</a>';
+		   echo '<br>';
+	   }
+	   ?>
+	   </div>
+	   <br>
+	   
    </section>
+	<div class="pagination">
+		<?php //display pagination list bar << 1 2 3 >>
+	   $pagLink = "";
+	   if($page>=2){   
+            echo "<a href='song-page.php?page=".($page-1)."'>  Prev </a>";   
+        }       
+                   
+        for ($i=1; $i<=$number_of_page; $i++) {   
+          if ($i == $page) {   
+              $pagLink .= "<a class = 'active' href='song-page.php?page="  
+                                                .$i."'>".$i." </a>";   
+          }               
+          else  {   
+              $pagLink .= "<a href='song-page.php?page=".$i."'>   
+                                                ".$i." </a>";     
+          }   
+        };     
+        echo $pagLink;   
+  
+        if($page<$number_of_page){   
+            echo "<a href='song-page.php?page=".($page+1)."'>  Next </a>";   
+        }   
+	   ?>
+	   </div>
    <div class="clear"></div>
 </div></div>
 <!-- footer -->

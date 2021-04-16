@@ -112,7 +112,7 @@ end
 DECLARE @PageNumber AS INT
 DECLARE @RowsOfPage AS INT
 SET @PageNumber=2
-SET @RowsOfPage=4
+SET @RowsOfPage=2
 SELECT *
 FROM MV
 ORDER BY MVID
@@ -136,7 +136,9 @@ insert into Account(AccountID, Username, PasswordHash, Avatar)
  values (1,'admin','admin','xxx')
 
  insert into Song(SongID,SongTitle,Genre,Country,SongViews,AudioLink,SongImage) values
- ()
+ (1,'First Song','Pop','US',0,'first.mp3','first.png')
 
  insert into MV(MVID,MVTitle,MVImage,MVLink) values
  (1,'HXH Portfolio','xxx','HxH Portfolio.mp4')
+
+ select * from Song

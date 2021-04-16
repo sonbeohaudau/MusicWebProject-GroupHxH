@@ -6,14 +6,25 @@ class Ctrl_Song{
 	public function invoke(){
 		$modelSong = new Model_Song();
 		$songList = $modelSong->getAllSong();
-//		for($i=0;$i<sizeof($songList);$i++){
-//			echo $songList[$i]->songID;
-//			print("<br>");
-//		}
-		include_once('../View/song-page-test.php');
+		return $songList;
+	}
+	
+	public function insert($SongTitle,$Genre,$Country,$AudioLink,$SongImage){
+		$modelMV = new Model_MV();
+		$modelMV->insertMV($SongTitle,$Genre,$Country,$AudioLink,$SongImage);
+	}
+	
+	public function getPaginationResult($pageNum, $resultPerPage){
+		$modelSong = new Model_Song();
+		$SongList = $modelSong->getPaginationPage($pageNum, $resultPerPage);
+		return $SongList;
+	}
+	
+	public function getSingleSong($SongID){
+		$modelSong = new Model_Song();
+		$song = $modelSong->getSongbyID($SongID);
+		return $song;
 	}
 }
 
-$c = new Ctrl_Song();
-$c->invoke();
 ?>

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/pagination.css" type="text/css" media="all">
 <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -59,25 +60,7 @@ ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
 }	
-	
-.pagination {   
-        display: inline-block;   
-    }   
-    .pagination a {   
-        font-weight:bold;   
-        font-size:13px;   
-        color: whitesmoke;   
-        float: left;   
-        padding: 8px 16px;   
-        text-decoration: none;   
-    }   
-    .pagination a.active {   
-            background-color: transparent; 
-		border:1px solid blueviolet;
-    }   
-    .pagination a:hover:not(.active) {   
-		background-image: linear-gradient(45deg, #B07CC9, #df53f6);
-    }   
+   
 </style>
 <?php
 include('../connection.php');
