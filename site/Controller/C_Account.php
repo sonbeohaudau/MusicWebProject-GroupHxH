@@ -17,7 +17,9 @@ class Ctrl_Account{
 	public function signinAction($username, $pass){
 		$model = new Model_Account();
 		if($model->checkUserforSignin($username, $pass)){
-			$_SESSION['inUsername'] = $username;
+			return $_SESSION['logedName'] = $username;
+		}else{
+			echo 'User not exist';
 		}
 	}
 	

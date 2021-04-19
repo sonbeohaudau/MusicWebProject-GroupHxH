@@ -30,40 +30,40 @@
 
 <?php
 include('../connection.php');
-include('../Controller/C_MV.php');
-$mvcontroller = new Ctrl_MV();
-$MVList = $mvcontroller->invoke();
-$listLength = count($MVList);
-$singleMV = $mvcontroller->getSingleMV($_GET['MVID']);
+include('../Controller/C_Singer.php');
+$singercontroller = new Ctrl_Singer();
+$singerList = $singercontroller->invoke();
+$listLength = count($singerList);
+$singleSinger = $singercontroller->getSingleSinger($_GET['SingerID']);
 ?>
 <body id="page5">
 	<?php 
 	if (session_status() === PHP_SESSION_NONE) {
     	session_start();
 	}
-	$_SESSION["mode"] = 4; ?>
+	$_SESSION["mode"] = 3; ?>
 <div class="wrap"><!-- header -->
 <?php include "./header.php" ?>
 <div class="container">
    <!-- aside -->
    <aside>
       <div class="inside">
-         <h2>Latest MV</h2>
+         <h2>Latest Singer</h2>
          <ul class="mv list1">
             <li>
-				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-3]->getMVImage(); ?>"></a>
-				<?php echo $MVList[$listLength-3]->getMVTitle(); ?><br>
-				<?php echo $MVList[$listLength-3]->getMVLink(); ?>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $singerList[$listLength-3]->getSingerImage(); ?>"></a>
+				<?php echo $singerList[$listLength-3]->getSingerName(); ?><br>
+				<?php echo $singerList[$listLength-3]->getBirthYear(); ?>
 			 </li><br>
             <li>
-				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-2]->getMVImage(); ?>"></a>
-				<?php echo $MVList[$listLength-2]->getMVTitle(); ?><br>
-				<?php echo $MVList[$listLength-2]->getMVLink(); ?>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $singerList[$listLength-2]->getSingerImage(); ?>"></a>
+				<?php echo $singerList[$listLength-2]->getSingerName(); ?><br>
+				<?php echo $singerList[$listLength-2]->getBirthYear(); ?>
 			 </li><br>
 			<li>
-				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $MVList[$listLength-1]->getMVImage(); ?>"></a>
-				<?php echo $MVList[$listLength-1]->getMVTitle(); ?><br>
-				<?php echo $MVList[$listLength-1]->getMVLink(); ?>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $singerList[$listLength-1]->getSingerImage(); ?>"></a>
+				<?php echo $singerList[$listLength-2]->getSingerName(); ?><br>
+				<?php echo $singerList[$listLength-2]->getBirthYear(); ?>
 			 </li><br>
          </ul>
       </div>
@@ -72,10 +72,10 @@ $singleMV = $mvcontroller->getSingleMV($_GET['MVID']);
    <section id="content">
 	   <ul class="breadcrumb">
 		  <li><a href="index.php">Home</a></li>
-		  <li><a href="mv-page.php">MV</a></li>
-		  <li><?php echo $singleMV->getMVTitle(); ?></li>
+		  <li><a href="singer-page.php">Singer</a></li>
+		  <li><?php echo $singleSinger->getBackground(); ?></li>
 		</ul>
-      <video width="100%" height="100%" src="video/<?php echo $MVList[0]->getMVLink(); ?>" controls>
+      <audio width="100%" height="100%" src="singer/<?php echo $singerList[0]->getSingerID(); ?>" controls>
    </section>
    <div class="clear"></div>
 </div></div>

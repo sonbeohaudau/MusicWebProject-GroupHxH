@@ -42,7 +42,7 @@ create table Track(
 create table Singer(
 	SingerID int primary key,
 	SingerName nvarchar(30),
-	BirthYear nvarchar(10),
+	BirthYear YEAR,
 	Background nvarchar(max),
 	SingerImage nvarchar(250)
 );
@@ -142,3 +142,8 @@ insert into Account(AccountID, Username, PasswordHash, Avatar)
  (1,'HXH Portfolio','xxx','HxH Portfolio.mp4')
 
  select * from Song
+
+ insert into Singer(SingerID, SingerName, BirthYear, Background, SingerImage) values
+ (1,'Adele',1988,'Test String','adele.jpg')
+
+ select * from Singer

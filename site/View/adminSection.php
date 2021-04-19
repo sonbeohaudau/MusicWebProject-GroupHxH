@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<h2><?php if(isset($_POST['adminMode'])) echo $adminMode = $_POST['adminMode']; ?></h2>
+<h2><?php if(isset($_GET['adminMode'])) echo $adminMode = $_GET['adminMode']; ?></h2>
       <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. </p>
       <ul class="sitemap">
          <li><a href="index.html">Home Page</a></li>

@@ -57,10 +57,11 @@ if($submit == 'Sign In'){
    <!-- aside -->
    <aside>
       <?php include 'admin.php'; ?>
+	   <?php echo $_SESSION['logedName']; ?>
    </aside>
    <!-- content -->
    <section id="content">
-      <?php include 'adminSection.php'; ?>
+      <?php include 'adminSection.php';?>
    </section>
    <div class="clear"></div>
 </div></div>

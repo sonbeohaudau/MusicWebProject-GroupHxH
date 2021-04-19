@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Song Page | HXH Group</title>
+<title>Singer Page | HXH Group</title>
 	<link rel = "icon" href ="images/hxh-logo.png" type = "image/x-icon">
 <meta charset="utf-8">
 <meta name="description" content="Place your description here" />
@@ -31,10 +31,10 @@
 
 <?php
 include('../connection.php');
-include('../Controller/C_Song.php');
-$songcontroller = new Ctrl_Song();
-$songList = $songcontroller->invoke();
-$listLength = count($songList);
+include('../Controller/C_Singer.php');
+$singercontroller = new Ctrl_Singer();
+$singerList = $singercontroller->invoke();
+$listLength = count($singerList);
 	
 //define total number of results you want per page
 $result_per_page = 5;
@@ -48,36 +48,36 @@ if(!isset($_GET['page'])){
 }else{
 	$page = $_GET['page'];
 }
-$songPagList = $songcontroller->getPaginationResult($page, $result_per_page);
+$singerPagList = $singercontroller->getPaginationResult($page, $result_per_page);
 ?>
 <body id="page5">
 	<?php 
 	if (session_status() === PHP_SESSION_NONE) {
     	session_start();
 	}
-	$_SESSION["mode"] = 2; ?>
+	$_SESSION["mode"] = 3; ?>
 <div class="wrap"><!-- header -->
 <?php include "./header.php" ?>
 <div class="container">
    <!-- aside -->
    <aside>
       <div class="inside">
-         <h2>Latest Song</h2>
+         <h2>Latest singer</h2>
          <ul class="mv list1">
             <li>
-				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $songList[$listLength-3]->getSongImage(); ?>"></a>
-				<?php echo $songList[$listLength-3]->getSongTitle(); ?><br>
-				<?php echo $songList[$listLength-3]->getAudioLink(); ?>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $singerList[$listLength-3]->getSingerImage(); ?>"></a>
+				<?php echo $singerList[$listLength-3]->getSingerName(); ?><br>
+				<?php echo $singerList[$listLength-3]->getBirthYear(); ?>
 			 </li><br>
             <li>
-				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $songList[$listLength-2]->getSongImage(); ?>"></a>
-				<?php echo $songList[$listLength-2]->getSongTitle(); ?><br>
-				<?php echo $songList[$listLength-2]->getAudioLink(); ?>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $singerList[$listLength-2]->getSingerImage(); ?>"></a>
+				<?php echo $singerList[$listLength-2]->getSingerName(); ?><br>
+				<?php echo $singerList[$listLength-2]->getBirthYear(); ?>
 			 </li><br>
 			<li>
-				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $songList[$listLength-1]->getSongImage(); ?>"></a>
-				<?php echo $songList[$listLength-1]->getSongTitle(); ?><br>
-				<?php echo $songList[$listLength-1]->getAudioLink(); ?>
+				<a href="index.php"><img width="30%" height="30%" src="images/<?php echo $singerList[$listLength-1]->getSingerImage(); ?>"></a>
+				<?php echo $singerList[$listLength-1]->getSingerName(); ?><br>
+				<?php echo $singerList[$listLength-1]->getBirthYear(); ?>
 			 </li><br>
          </ul>
       </div>
@@ -86,8 +86,8 @@ $songPagList = $songcontroller->getPaginationResult($page, $result_per_page);
    <section id="content">
 	   <div>
 	   <?php
-	   for($i=0;$i<count($songPagList);$i++){
-		   echo '<a href=\'single-song-page.php?SongID='.$songPagList[$i]->getSongID().'\'>'.$songPagList[$i]->getSongTitle().'</a>';
+	   for($i=0;$i<count($singerPagList);$i++){
+		   echo '<a href=\'single-singer-page.php?SingerID='.$singerPagList[$i]->getSingerID().'\'>'.$singerPagList[$i]->getSingerName().'</a>';
 		   echo '<br>';
 	   }
 	   ?>
@@ -99,23 +99,23 @@ $songPagList = $songcontroller->getPaginationResult($page, $result_per_page);
 		<?php //display pagination list bar << 1 2 3 >>
 	   $pagLink = "";
 	   if($page>=2){   
-            echo "<a href='song-page.php?page=".($page-1)."'>  Prev </a>";   
+            echo "<a href='singer-page.php?page=".($page-1)."'>  Prev </a>";   
         }       
                    
         for ($i=1; $i<=$number_of_page; $i++) {   
           if ($i == $page) {   
-              $pagLink .= "<a class = 'active' href='song-page.php?page="  
+              $pagLink .= "<a class = 'active' href='singer-page.php?page="  
                                                 .$i."'>".$i." </a>";   
           }               
           else  {   
-              $pagLink .= "<a href='song-page.php?page=".$i."'>   
+              $pagLink .= "<a href='singer-page.php?page=".$i."'>   
                                                 ".$i." </a>";     
           }   
         };     
         echo $pagLink;   
   
         if($page<$number_of_page){   
-            echo "<a href='song-page.php?page=".($page+1)."'>  Next </a>";   
+            echo "<a href='singer-page.php?page=".($page+1)."'>  Next </a>";   
         }   
 	   ?>
 	   </div>

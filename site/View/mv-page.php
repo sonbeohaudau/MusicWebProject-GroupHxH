@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/pagination.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/breadcrumb.css" type="text/css" media="all">
 <script type="text/javascript" src="js/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/cufon-replace.js"></script>
@@ -27,41 +28,7 @@
   	<script type="text/javascript" src="js/html5.js"></script>
   <![endif]-->
 </head>
-<style>
-/* Style the list */
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: transparent;
-  border-radius: 5px;
-}
 
-/* Display list items side by side */
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-
-/* Add a slash symbol (/) before/behind each list item */
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: whitesmoke;
-  content: "/\00a0";
-}
-
-/* Add a color to all links inside the list */
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}	
-   
-</style>
 <?php
 include('../connection.php');
 include('../Controller/C_MV.php');
